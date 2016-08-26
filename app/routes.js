@@ -5,6 +5,10 @@ router.get('/', function (req, res) {
   res.render('index')
 })
 
+router.get('/dgu', function (req, res) {
+  res.render('dgu')
+})
+
 // Example routes - feel free to delete these
 
 // Passing data into a page

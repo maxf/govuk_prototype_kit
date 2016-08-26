@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  DGU
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+    <h1 class="heading-xlarge">DGU</h1>
+    <div id="counter"></div>
+    <script src="/public/javascripts/elm.js"></script>
+    <script>
+        var node = document.getElementById('counter');
+        var app = Elm.Counter.embed(node);
+    </script>
+  </main>
+
+{% endblock %}

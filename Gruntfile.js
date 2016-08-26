@@ -23,13 +23,21 @@ module.exports = function (grunt) {
       }
     },
 
+    elm_make: {
+      dev : {
+        files: {
+          'public/javascripts/elm.js': ['app/assets/elm/Counter.elm'],
+        }
+      }
+    },
+
     // Copies templates and assets from external modules and dirs
     sync: {
       assets: {
         files: [{
           expand: true,
           cwd: 'app/assets/',
-          src: ['**/*', '!sass/**'],
+          src: ['**/*', '!sass/**', '!elm/**'],
           dest: 'public/'
         }],
         ignoreInDest: '**/stylesheets/**',
@@ -81,6 +89,13 @@ module.exports = function (grunt) {
         options: {
           spawn: false
         }
+      },
+      elm: {
+        files: ['app/assets/elm/**/*.elm'],
+        tasks: ['elm_make'],
+        options: {
+          spawn: false
+        }
       }
     },
 
@@ -111,14 +126,16 @@ module.exports = function (grunt) {
     'grunt-contrib-watch',
     'grunt-sass',
     'grunt-nodemon',
-    'grunt-concurrent'
+    'grunt-concurrent',
+    'grunt-elm-make'
   ].forEach(function (task) {
     grunt.loadNpmTasks(task)
   })
 
   grunt.registerTask('generate-assets', [
     'sync',
-    'sass'
+    'sass',
+    'elm_make'
   ])
 
   grunt.registerTask('default', [
