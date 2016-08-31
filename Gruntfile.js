@@ -26,7 +26,7 @@ module.exports = function (grunt) {
     elm_make: {
       dev : {
         files: {
-          'public/javascripts/elm.js': ['app/assets/elm/Counter.elm'],
+          'public/javascripts/elm.js': ['app/assets/elm/Main.elm'],
         }
       }
     },

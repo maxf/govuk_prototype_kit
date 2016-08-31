@@ -8,11 +8,13 @@
 
   <main id="content" role="main">
     <h1 class="heading-xlarge">DGU</h1>
-    <div id="counter"></div>
+    <div id="elm-main"></div>
     <script src="/public/javascripts/elm.js"></script>
     <script>
-        var node = document.getElementById('counter');
-        var app = Elm.Counter.embed(node);
+        var node = document.getElementById('elm-main');
+        if (node) {
+          var app = Elm.Main.embed(node);
+        }
     </script>
   </main>
 
